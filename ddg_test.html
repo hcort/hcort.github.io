@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 
+  <style>
+.container {
+    width: 450px;
+    padding: 1em;
+    background: #000;
+	background-color:#1c87c9;
+    margin: auto;
+}
+</style> 
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    //$("#w3review").hide();	
+	$('#resultados').html('');
+	var lines = $('#w3review').val().split('\n');
+	$.each(lines, function(n, elem){
+		if (elem.trim() == '' ) {
+			return;
+		}
+		console.log(n + this);
+		//alert(this);
+		//$('#resultados').append(this+<br/>);
+		$("<li></li>").text(elem).appendTo($("#resultados"));
+	});
+  });
+});
+</script>
+
+</head>
+
+<body>
+
+<h1>Prueba</h1>
+
+<label for="w3review">Introduce líneas de búsqueda</label>
+<textarea id="w3review" name="w3review" rows="4" cols="50"></textarea>
+  <br><br>
+  <button>Buscar</button>
+<div class="container" id="resultados"></div>
+
+</body>
+</html>
